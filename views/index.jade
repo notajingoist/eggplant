@@ -1,19 +1,28 @@
 extend layout
 block content
     div(class='main-content')
-        div(class='center-panel one')
+        div(id='panel-1', class='center-panel one')
             div(class='center-text')
                 div(class='main-text').
                     Eggplant Day
-        div(class='center-panel two')
+            //- div(class='down-arrow')
+                a(class='scroll-click', href='#panel-2').
+                    ❭
+        div(id='panel-2', class='center-panel two')
             div(class='center-text')
                 div(class='main-text').
-                    Tuesday 4/7
-        div(class='center-panel three')
+                    Friday 4/10
+            //- div(class='down-arrow')
+                a(class='scroll-click', href='#panel-3').
+                    ❭
+        div(id='panel-3', class='center-panel three')
             div(class='center-text')
                 div(class='main-text').
-                    10am - 3pm
-        div(class='center-panel four')
+                    1pm - 5pm
+            //- div(class='down-arrow')
+                a(class='scroll-click', href='#panel-4').
+                    ❭
+        div(id='panel-4', class='center-panel four')
             div(class='center-text')
                 div(class='main-text').
-                    UC Courtyard
+                    CUC Courtyard

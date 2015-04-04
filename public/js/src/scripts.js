@@ -2,7 +2,8 @@ var SITE = {
     init: function() {
         this.setVars();
         this.bindEvents();
-        this.$window.trigger('resize');
+        // this.$document.trigger('mousemove');
+        // this.$window.trigger('resize');
     },
 
     setVars: function() {
@@ -11,13 +12,16 @@ var SITE = {
         this.$body = $('body');
         this.$htmlBody = $('html, body');
         this.$cursor = $('.eggplant-cursor');
+        // this.$scrollClick = $('.scroll-click');
     },
 
     bindEvents: function() {
         this.$document.on('mousemove', this.placeCursor.bind(this));
+        this.$scrollClick.on('click', this.scrollToSection.bind(this));
     },
 
     placeCursor: function(e) {
+        console.log('moved');
         var offsetLeft = 40;
         var offsetTop = 100;
         var x = e.pageX - offsetLeft;
@@ -29,6 +33,7 @@ var SITE = {
 
     scrollToSection: function(e) {
         e.preventDefault();
+        console.log('scrolling');
         var $el = $(e.currentTarget);
         var anchor = $el.attr('href');
         var offset = $(anchor).offset().top;
