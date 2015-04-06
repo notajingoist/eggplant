@@ -18,11 +18,11 @@ var SITE = {
 
     bindEvents: function() {
         this.$document.on('mousemove', this.placeCursor.bind(this));
-        this.$scrollClick.on('click', this.scrollToSection.bind(this));
+        //this.$scrollClick.on('click', this.scrollToSection.bind(this));
     },
 
     placeCursor: function(e) {
-        console.log('moved');
+        //console.log('moved');
         var offsetLeft = 40;
         var offsetTop = 100;
         var x = e.pageX - offsetLeft;
