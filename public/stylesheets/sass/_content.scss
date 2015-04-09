@@ -23,10 +23,90 @@
 }
 
 .main-content {
-    width: 100%;
-    margin: 0 auto;
+    // width: 100%;
+    // margin: 0 auto;
     text-align: center;
-    padding: 50px;
+    // padding: 50px;
+}
+
+.questions-list {
+
+    li {
+        position: relative;
+
+        &.active {
+            .q-text {
+                opacity: 1;
+            }
+        }
+
+        &:hover {
+            @include transition(opacity 0.3s ease-in-out 0);
+            cursor: pointer;
+            .q-text {
+                opacity: 1;
+            }
+            // opacity: 0.8;
+        }
+
+        &:before {
+            @include transition(background-color 0.3s ease-in-out 0);
+            content: '';
+            display: block;
+            height: 100%;
+            width: 20px;
+            background-color: transparent;
+            // opacity: 0.2;
+            position: absolute;
+        }
+
+        &:nth-child(3n) {
+            background-color: $pink;
+            &:hover {
+                background-color: shade($pink, 20%);
+                // cursor: pointer;
+                &:before {
+                    background-color: $purple;
+                }
+            }
+
+        }
+        &:nth-child(3n+1) {
+            background-color: $purple;
+            &:hover {
+                background-color: shade($purple, 20%);
+                // cursor: pointer;
+                &:before {
+                    background-color: $green;
+                }
+            }
+
+        }
+        &:nth-child(3n+2) {
+            background-color: $green;
+            &:hover {
+                background-color: shade($green, 20%);
+                // cursor: pointer;
+                &:before {
+                    background-color: $pink;
+                }
+            }
+
+        }
+
+        .q-text {
+            @include transition(opacity 0.3s ease-in-out 0);
+            padding: 30px 50px;//50px;// 75px;
+            color: #fff;
+            font-size: 36px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            line-height: 1.2;
+            text-transform: uppercase;
+            opacity: 0.2;
+        }
+
+    }
 }
 
 .back-to-top {
@@ -51,22 +131,22 @@
     }
 }
 
-.panel{
-    // @include vertical-align(50%);
-    background-color: #fff;
-    color: #000;
-    width: 100%;
-    padding: 40px;
-    max-width: 960px;
-    margin: 0 auto;
-    text-align: left;
-    position: relative;
+// .panel {
+//     // @include vertical-align(50%);
+//     background-color: #fff;
+//     color: #000;
+//     width: 100%;
+//     padding: 40px;
+//     max-width: 960px;
+//     margin: 0 auto;
+//     text-align: left;
+//     position: relative;
 
-    &:not(:last-child) {
-        margin-bottom: 30px;
-    }
+//     &:not(:last-child) {
+//         margin-bottom: 30px;
+//     }
 
-}
+// }
 
 
 .center-panel {

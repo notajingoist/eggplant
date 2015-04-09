@@ -20,6 +20,16 @@ app.set('view engine', 'jade');
 app.get('/', function(req, res) {
     res.render('index', {
         title: 'Eggplant Day',
+        cursor: 'eggplant',
+        home: 'active'
+    });
+});
+
+// questionnaire
+app.get('/questionnaire', function(req, res) {
+    res.render('questionnaire', {
+        title: 'Eggplant Day',
+        cursor: 'default',
         home: 'active'
     });
 });

@@ -12,12 +12,48 @@ var SITE = {
         this.$body = $('body');
         this.$htmlBody = $('html, body');
         this.$cursor = $('.eggplant-cursor');
+        this.$questions = $('.q-li');
+        this.$audioClips = $('.answer-audio-clip');
         // this.$scrollClick = $('.scroll-click');
     },
 
     bindEvents: function() {
-        this.$document.on('mousemove', this.placeCursor.bind(this));
+        if (this.$body.hasClass('cursor-type-eggplant')) {
+            this.$document.on('mousemove', this.placeCursor.bind(this));
+        }
+        this.$questions.on('click', this.playAudio.bind(this));
+        this.$audioClips.on('ended', this.removeActiveClass.bind(this));
+        //answer-
         //this.$scrollClick.on('click', this.scrollToSection.bind(this));
+    },
+
+    removeActiveClass: function(e) {
+        var $el = $(e.currentTarget);
+        var id = $el.attr('id');
+        var questionClass = id.slice(7);
+        console.log(questionClass);
+        $('#' + questionClass).removeClass('active');
+    },
+
+    playAudio: function(e) {
+        e.preventDefault();
+        var $el = $(e.currentTarget);
+
+        var id = $el.attr('id');
+        var $audioClip = $('#answer-' + id);
+
+        this.$questions.removeClass('active');
+
+        this.$audioClips.each(function() {
+            this.pause();
+            this.currentTime = 0;
+        });
+
+        setTimeout(function() {
+            $el.addClass('active');
+            $audioClip[0].play();
+            console.log('playing ' + $audioClip.attr('id'));
+        });
     },
 
     placeCursor: function(e) {
